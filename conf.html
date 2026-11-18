@@ -1,0 +1,52 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirmation</title>
+    <link rel="stylesheet" href="conf.css">
+</head>
+<body>
+    <h1>bienvenue chez nos <span> Mariage</span></h1>
+    <p>Nous vous remercions du fond du cœur d’avoir confirmé votre présence à notre mariage. Votre participation à cette journée si précieuse à nos yeux nous touche profondément. Nous avons hâte de partager avec vous des instants inoubliables, remplis d’amour, de joie et de sourires.</p>
+    <h2>temps resté avant la <span>grande journée</span> </h2>
+    <div class="reste" id="reste">
+    <h3>Attention il vous reste :</h3>  <span class="countdown" id="countdown"></span>
+</div>
+   <script>
+  
+  // Récupérer la date du mariage depuis le localStorage (déjà enregistrée auparavant)
+  const dateStr = localStorage.getItem("date");
+
+  // Si la date est trouvée, on continue
+  if (dateStr) {
+    const dateCible = new Date(dateStr);
+    const countdownElement = document.getElementById("reste");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = dateCible - now;
+
+      if (diff <= 0) {
+        countdownElement.innerHTML = "C'est le grand jour ! 🎉";
+        clearInterval(timer);
+        return;
+      }
+
+      const jours = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const heures = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const secondes = Math.floor((diff / 1000) % 60);
+
+      countdownElement.innerHTML = `${jours} jours, ${heures}h, ${minutes}min, ${secondes}s`;
+    }
+
+    updateCountdown(); // Appel immédiat
+    const timer = setInterval(updateCountdown, 1000); // Mise à jour toutes les secondes
+  } else {
+    document.getElementById("reste").innerText = "Date non définie !";
+  }
+</script>
+
+</body>
+</html> 

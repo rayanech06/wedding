@@ -1,0 +1,76 @@
+body{
+    background-image: url('image/ed-robertson-sqLVUTFtxVs-unsplash.jpg');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    image-rendering: auto;
+
+}
+
+h1{
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color: #fdec02; 
+}
+span{
+    color: red;
+    font-size: 60px;
+}
+   form {
+      background-color: #d3aeae;
+      width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      
+    }
+  button {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      align-content: center;
+    }
+
+    button:hover {
+      background-color: #de3f14;
+    }
+    
+     label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    input[type="text"],
+    input[type="datetime-local"],   
+       textarea {
+      width: 50%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+     textarea {
+      resize: vertical;
+    }

@@ -1,0 +1,57 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>formulaire</title>
+        <link rel="stylesheet" href="formulaire.css">
+        <!-- :<script src="validation.js"></script> -->
+        <link rel="icon" href="image/starbucks.png" >
+
+    </head>
+    <body>
+        <h1>formulaire de <span>mariage</span> </h1>
+        <form  align="center">
+        <label>Nom de mari :</label>
+        <input type="text"  id="mari" placeholder="Ex: xxxxx" >
+        <label>Nom de mariée :</label>
+        <input type="text"  id="mariee" placeholder="Ex: yyyyyy" ><br><br>
+        <label>date :</label>
+        <input type="datetime-local"  id="date" ><br><br>
+        <label>salle de Mariage :</label>
+        <input type="text"  id="lieu" placeholder="Ex: Place LallaOuda" >
+        <label>adresse :</label>
+        <textarea id="adr" cols="25" rows="6" placeholder="Ex: Meknes Maroc" ></textarea><br><br>
+        <button type="button" class="btn btn-primary btn-sm" onclick="ajouter()">enregistrer</button>
+    </form> 
+    <script>
+
+        function ajouter() {
+            let mari = document.getElementById('mari').value.trim();
+            let mariee = document.getElementById('mariee').value.trim();
+            let date = document.getElementById('date').value.trim();
+            let lieu = document.getElementById('lieu').value.trim();
+            let adr = document.getElementById('adr').value.trim();
+
+            if(!mari || !mariee || !date || !lieu || !adr){
+            alert("Veuiller remlir tous les champs !!");
+            return false;
+            }else{
+                alert("are you ready !?")
+            }
+            //stocker les valeurs
+
+            localStorage .setItem('mari',mari);
+            localStorage .setItem('mariee',mariee);
+            localStorage .setItem('date',date);
+            localStorage .setItem('lieu',lieu);
+            localStorage .setItem('adr',adr);
+
+            //redirection vers la page d'invi
+            
+                window.location.href="invi.html";
+            
+        }
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carte d'invitation</title>
+    <link rel="stylesheet" href="invi.css">
+    <link rel="icon" href="image/starbucks.png" >
+</head> 
+<body> 
+    <h4 style="padding: 55px; font-size: 45px;color:rgb(78, 44, 2)">invitation de <span>Mariage</span> </h4>
+    <div class="invitation">
+            <div id="invi-mariee" class="safae"></div>
+            <div class="et">&</div>
+        <div id="invi-mari" class="Amine"></div>
+        <h1 >ONT L'HONNEUR DE VOUS FAIRE PART DE LEUR <span class="span2">Mariage</span></h1>
+       <!-- <h2>  -->
+        <div class="date-container">
+
+        <div date-left id="jours"></div>
+
+        <div class="date-center" >
+            <div class="month" id="mois"></div>
+            <div class="day" style="color: #f9fc69;" id="chiffre"></div>
+            <div class="year" id="annee"></div>
+        </div>
+        
+
+        <div class="date-right" style="font-size: 30px;">
+            <h6 id="heure"></h6></div>
+        </div>
+       
+        <h3 class="lieu" id="invi-lieu">
+
+        </h3>
+        <p id="invi-adr" style="color: rgb(212, 212, 212);"></p>
+       </div> 
+       
+       <div class="pItalic">
+        <p>
+        merci de bien vouloir confirmer <br>
+        votre présence
+       </p>
+       </div>
+       <div class="confirme">
+    <button type="button" onclick="confirmer()" >je confirme</button> 
+    <button type="button" onclick="quiter()" >quitter</button>
+      </div>
+       
+    </div>
+    <script>
+        
+            window.onload = function () {
+            let mari = localStorage.getItem("mari")||"";
+            let mariee = localStorage.getItem("mariee")||"";
+            let date = localStorage.getItem("date")||"";
+            let lieu = localStorage.getItem("lieu")||"";
+            let adr = localStorage.getItem("adr")||"";
+
+            if (date) {
+                let dateObj = new Date(date);
+                let chiffre = dateObj.getDate();
+                let mois = dateObj.toLocaleDateString("fr-FR",{month :"long"});
+                let annee = dateObj.getFullYear();
+                let jours = dateObj.toLocaleDateString("fr-FR",{weekday :"long"});
+                let heure = dateObj.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+
+                         //remplir les zones dynamiques
+
+            document.getElementById("invi-mariee").innerText=mariee;
+            document.getElementById("invi-mari").innerText=mari;
+            document.getElementById('jours').innerText=jours.toUpperCase();
+            document.getElementById('mois').innerText=mois;
+            document.getElementById('chiffre').innerText=chiffre;
+            document.getElementById('annee').innerText=annee;
+            document.getElementById('heure').innerText="A "+heure;
+            document.getElementById('invi-lieu').innerText=lieu;
+            document.getElementById('invi-adr').innerText=adr;
+
+            }
+            
+        
+        }
+        function confirmer() {
+        window.location.href = "conf.html";
+    }
+
+        function quiter(){
+            
+             window.location.href = "formulaire.html";  
+             return false;
+        }
+    </script>
+</body>
+</html>
